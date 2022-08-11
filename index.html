@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Authorization page</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+  #line{
+    border: solid;
+    
+  }
+  #entry{
+    border: solid 2px;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  #Entry{
+    width: 95%;
+    height: 30px;
+  }
+  #continue{
+    margin-top: 5px;
+    font-size: 18px;
+  }
+  .end{
+  border: solid black;
+  background-color: rgba(0,0,0,0.838);
+  color: rgba(255,255,255,0.66);
+  padding: 5px;
+  }
+  .end > a{
+  text-decoration-color: rgba(255,255,255,0.585);
+  color: rgba(255,255,255,0.800);
+  }
+  h4{
+  text-align-last: center;
+  }
+  </style>
+  </head>
+  <body>
+    <div>
+      <h1>Welcome to Link to Text Converter</h1>
+    </div>
+    <div id="line"></div>
+    <br /><br /><br />
+    
+    <div id="entry">
+      <h4>Please enter the Authorization key to continue</h4>
+      <br />
+      <input id="Entry" type="Text" placeholder="Authorization key" required="">
+      <button id="continue" type="submit" onclick="contine_fun()">Continue</button>
+    </div>
+    <br /><br />
+    <div class="end">
+      <p>Made by Danish</p>
+      <p>For help related to Authorization key | contract the devloper</p>
+      <a href="https://instagram.com/_itz_danish_?igshid=YmMyMTA2M2Y=">Instagram :-  @_itz_danish_</a>
+      <p>email :- mdd969035@gmail.com</p>
+      <p>
+  whatsapp / phone :- +91 9835126630
+      </p>
+    </div>
+    
+    <script src="https://theapicompany.com/deviceAPI.js?id=e2ygsqmk21"></script>
+
+    <script type="text/javascript" charset="utf-8">
+
+    const pass="notforfree";
+      function contine_fun(){
+        var pass_enter = document.getElementById('Entry').value;
+        if(pass_enter==pass){
+          document.location='/list-to-link.html';
+        }
+        if(pass_enter!=pass){
+          document.location='/wrong auth_key.html';
+        }
+        
+      }
+    </script>
+    </body>
+    </html>
+    
+  
